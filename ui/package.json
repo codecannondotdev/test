@@ -20,13 +20,8 @@
 		"test:run": "vitest run --typecheck",
 		"coverage": "vitest run --coverage"
 	},
-	"overrides": {
-		"vite": "npm:rolldown-vite@latest"
-	},
 	"dependencies": {
 		"@primevue/themes": "4.3.4",
-		"@sentry/vite-plugin": "^3.5.0",
-		"@sentry/vue": "^9.24.0",
 		"axios": "^1.9.0",
 		"date-fns": "^4.1.0",
 		"pinia": "^3.0.1",
@@ -53,7 +48,7 @@
 		"prettier": "^3.5.3",
 		"typescript": "~5.8.2",
 		"rolldown-vite": "latest",
-		"vitest": "^3.1.4",
+		"vitest": "^3.2.0",
 		"vue-tsc": "^2.2.10"
 	}
 }
