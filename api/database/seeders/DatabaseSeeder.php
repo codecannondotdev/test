@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
         if (User::count() > 0) {
             return;
         }
-        $this->call([UserSeeder::class/* GENERATOR(SEEDER) */]);
+        $this->call([UserSeeder::class, MaterialSeeder::class, MineSeeder::class, MiningOperationSeeder::class, FactorySeeder::class, CarModelSeeder::class, ProductionBatchSeeder::class, SupplierSeeder::class, PurchaseOrderSeeder::class, InventorySeeder::class, CustomerSeeder::class, SalesOrderSeeder::class, ShipmentSeeder::class]);
     }
 }
