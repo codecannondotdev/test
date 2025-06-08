@@ -13,7 +13,30 @@ import AuthApi from '@/helpers/api/AuthApi'
 import UserList from '../views/User/List.vue'
 import UserEdit from '../views/User/Edit.vue'
 import UserDetails from '../views/User/Details.vue'
-/* GENERATOR(IMPORT) */
+import MaterialList from '../views/Material/List.vue'
+import MaterialEdit from '../views/Material/Edit.vue'
+import MineList from '../views/Mine/List.vue'
+import MineEdit from '../views/Mine/Edit.vue'
+import MiningOperationList from '../views/MiningOperation/List.vue'
+import MiningOperationEdit from '../views/MiningOperation/Edit.vue'
+import FactoryList from '../views/Factory/List.vue'
+import FactoryEdit from '../views/Factory/Edit.vue'
+import CarModelList from '../views/CarModel/List.vue'
+import CarModelEdit from '../views/CarModel/Edit.vue'
+import ProductionBatchList from '../views/ProductionBatch/List.vue'
+import ProductionBatchEdit from '../views/ProductionBatch/Edit.vue'
+import SupplierList from '../views/Supplier/List.vue'
+import SupplierEdit from '../views/Supplier/Edit.vue'
+import PurchaseOrderList from '../views/PurchaseOrder/List.vue'
+import PurchaseOrderEdit from '../views/PurchaseOrder/Edit.vue'
+import InventoryList from '../views/Inventory/List.vue'
+import InventoryEdit from '../views/Inventory/Edit.vue'
+import CustomerList from '../views/Customer/List.vue'
+import CustomerEdit from '../views/Customer/Edit.vue'
+import SalesOrderList from '../views/SalesOrder/List.vue'
+import SalesOrderEdit from '../views/SalesOrder/Edit.vue'
+import ShipmentList from '../views/Shipment/List.vue'
+import ShipmentEdit from '../views/Shipment/Edit.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -143,7 +166,246 @@ const router = createRouter({
 				},
 			],
 		},
-		/* GENERATOR(ROUTES) */
+		{
+			path: '/materials',
+			children: [
+				{
+					path: '',
+					name: 'materials-list',
+					component: MaterialList,
+				},
+				{
+					path: '/materials/create',
+					name: 'materials-create',
+					component: MaterialEdit,
+				},
+				{
+					path: '/materials/:id',
+					name: 'materials-edit',
+					component: MaterialEdit,
+				},
+			],
+		},
+		{
+			path: '/mines',
+			children: [
+				{
+					path: '',
+					name: 'mines-list',
+					component: MineList,
+				},
+				{
+					path: '/mines/create',
+					name: 'mines-create',
+					component: MineEdit,
+				},
+				{
+					path: '/mines/:id',
+					name: 'mines-edit',
+					component: MineEdit,
+				},
+			],
+		},
+		{
+			path: '/mining-operations',
+			children: [
+				{
+					path: '',
+					name: 'mining-operations-list',
+					component: MiningOperationList,
+				},
+				{
+					path: '/mining-operations/create',
+					name: 'mining-operations-create',
+					component: MiningOperationEdit,
+				},
+				{
+					path: '/mining-operations/:id',
+					name: 'mining-operations-edit',
+					component: MiningOperationEdit,
+				},
+			],
+		},
+		{
+			path: '/factories',
+			children: [
+				{
+					path: '',
+					name: 'factories-list',
+					component: FactoryList,
+				},
+				{
+					path: '/factories/create',
+					name: 'factories-create',
+					component: FactoryEdit,
+				},
+				{
+					path: '/factories/:id',
+					name: 'factories-edit',
+					component: FactoryEdit,
+				},
+			],
+		},
+		{
+			path: '/car-models',
+			children: [
+				{
+					path: '',
+					name: 'car-models-list',
+					component: CarModelList,
+				},
+				{
+					path: '/car-models/create',
+					name: 'car-models-create',
+					component: CarModelEdit,
+				},
+				{
+					path: '/car-models/:id',
+					name: 'car-models-edit',
+					component: CarModelEdit,
+				},
+			],
+		},
+		{
+			path: '/production-batches',
+			children: [
+				{
+					path: '',
+					name: 'production-batches-list',
+					component: ProductionBatchList,
+				},
+				{
+					path: '/production-batches/create',
+					name: 'production-batches-create',
+					component: ProductionBatchEdit,
+				},
+				{
+					path: '/production-batches/:id',
+					name: 'production-batches-edit',
+					component: ProductionBatchEdit,
+				},
+			],
+		},
+		{
+			path: '/suppliers',
+			children: [
+				{
+					path: '',
+					name: 'suppliers-list',
+					component: SupplierList,
+				},
+				{
+					path: '/suppliers/create',
+					name: 'suppliers-create',
+					component: SupplierEdit,
+				},
+				{
+					path: '/suppliers/:id',
+					name: 'suppliers-edit',
+					component: SupplierEdit,
+				},
+			],
+		},
+		{
+			path: '/purchase-orders',
+			children: [
+				{
+					path: '',
+					name: 'purchase-orders-list',
+					component: PurchaseOrderList,
+				},
+				{
+					path: '/purchase-orders/create',
+					name: 'purchase-orders-create',
+					component: PurchaseOrderEdit,
+				},
+				{
+					path: '/purchase-orders/:id',
+					name: 'purchase-orders-edit',
+					component: PurchaseOrderEdit,
+				},
+			],
+		},
+		{
+			path: '/inventories',
+			children: [
+				{
+					path: '',
+					name: 'inventories-list',
+					component: InventoryList,
+				},
+				{
+					path: '/inventories/create',
+					name: 'inventories-create',
+					component: InventoryEdit,
+				},
+				{
+					path: '/inventories/:id',
+					name: 'inventories-edit',
+					component: InventoryEdit,
+				},
+			],
+		},
+		{
+			path: '/customers',
+			children: [
+				{
+					path: '',
+					name: 'customers-list',
+					component: CustomerList,
+				},
+				{
+					path: '/customers/create',
+					name: 'customers-create',
+					component: CustomerEdit,
+				},
+				{
+					path: '/customers/:id',
+					name: 'customers-edit',
+					component: CustomerEdit,
+				},
+			],
+		},
+		{
+			path: '/sales-orders',
+			children: [
+				{
+					path: '',
+					name: 'sales-orders-list',
+					component: SalesOrderList,
+				},
+				{
+					path: '/sales-orders/create',
+					name: 'sales-orders-create',
+					component: SalesOrderEdit,
+				},
+				{
+					path: '/sales-orders/:id',
+					name: 'sales-orders-edit',
+					component: SalesOrderEdit,
+				},
+			],
+		},
+		{
+			path: '/shipments',
+			children: [
+				{
+					path: '',
+					name: 'shipments-list',
+					component: ShipmentList,
+				},
+				{
+					path: '/shipments/create',
+					name: 'shipments-create',
+					component: ShipmentEdit,
+				},
+				{
+					path: '/shipments/:id',
+					name: 'shipments-edit',
+					component: ShipmentEdit,
+				},
+			],
+		},
 		{
 			path: '/404-not-found',
 			name: 'not-found',
@@ -165,7 +427,7 @@ const router = createRouter({
 		{
 			name: 'root',
 			path: '/:pathMatch(.*)*',
-			redirect: '/home',
+			redirect: '/materials',
 		},
 	],
 })
