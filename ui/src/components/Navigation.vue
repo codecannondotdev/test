@@ -17,7 +17,85 @@
 				@click="toggleLocked" />
 		</div>
 		<div class="navigation__links-container">
-			<!-- GENERATOR(LINK) -->
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'materials-list' }">
+				<i class="navigation__link-icon far fa-light fa-cubes"></i>
+				<div class="navigation__link-title">Materials</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'mines-list' }">
+				<i class="navigation__link-icon far fa-light fa-industry"></i>
+				<div class="navigation__link-title">Mines</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'mining-operations-list' }">
+				<i class="navigation__link-icon far fa-light fa-hard-hat"></i>
+				<div class="navigation__link-title">Mining Operations</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'factories-list' }">
+				<i class="navigation__link-icon far fa-light fa-industry"></i>
+				<div class="navigation__link-title">Factories</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'car-models-list' }">
+				<i class="navigation__link-icon far fa-light fa-car"></i>
+				<div class="navigation__link-title">Car Models</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'production-batches-list' }">
+				<i class="navigation__link-icon far fa-light fa-industry"></i>
+				<div class="navigation__link-title">Production Batches</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'suppliers-list' }">
+				<i class="navigation__link-icon far fa-light fa-handshake"></i>
+				<div class="navigation__link-title">Suppliers</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'purchase-orders-list' }">
+				<i class="navigation__link-icon far fa-light fa-file-invoice-dollar"></i>
+				<div class="navigation__link-title">Purchase Orders</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'inventories-list' }">
+				<i class="navigation__link-icon far fa-light fa-warehouse"></i>
+				<div class="navigation__link-title">Inventories</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'customers-list' }">
+				<i class="navigation__link-icon far fa-light fa-users"></i>
+				<div class="navigation__link-title">Customers</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'sales-orders-list' }">
+				<i class="navigation__link-icon far fa-light fa-file-invoice-dollar"></i>
+				<div class="navigation__link-title">Sales Orders</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'shipments-list' }">
+				<i class="navigation__link-icon far fa-light fa-truck"></i>
+				<div class="navigation__link-title">Shipments</div>
+			</router-link>
+			<router-link
+				v-if="auth.user!.role === 'admin'"
+				class="navigation__link-item"
+				:to="{ name: 'users-list' }">
+				<i class="navigation__link-icon far fa-light fas fa-user"></i>
+				<div class="navigation__link-title">Users</div>
+			</router-link>
 		</div>
 		<div class="navigation__links-container navigation__links-container--bottom">
 			<router-link
