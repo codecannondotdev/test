@@ -17,7 +17,73 @@
 				@click="toggleLocked" />
 		</div>
 		<div class="navigation__links-container">
-			<!-- GENERATOR(LINK) -->
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'members-list' }">
+				<i class="navigation__link-icon far fa-light fa-user"></i>
+				<div class="navigation__link-title">Members</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'trainers-list' }">
+				<i class="navigation__link-icon far fa-light fa-chalkboard-teacher"></i>
+				<div class="navigation__link-title">Trainers</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'classes-list' }">
+				<i class="navigation__link-icon far fa-light fa-dumbbell"></i>
+				<div class="navigation__link-title">Classes</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'sessions-list' }">
+				<i class="navigation__link-icon far fa-light fa-calendar-alt"></i>
+				<div class="navigation__link-title">Sessions</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'equipment-list' }">
+				<i class="navigation__link-icon far fa-light fa-toolbox"></i>
+				<div class="navigation__link-title">Equipment</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'bookings-list' }">
+				<i class="navigation__link-icon far fa-light fa-calendar-check"></i>
+				<div class="navigation__link-title">Bookings</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'payments-list' }">
+				<i class="navigation__link-icon far fa-light fa-credit-card"></i>
+				<div class="navigation__link-title">Payments</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'schedules-list' }">
+				<i class="navigation__link-icon far fa-light fa-calendar-alt"></i>
+				<div class="navigation__link-title">Schedules</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'facilities-list' }">
+				<i class="navigation__link-icon far fa-light fa-building"></i>
+				<div class="navigation__link-title">Facilities</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'subscriptions-list' }">
+				<i class="navigation__link-icon far fa-light fa-credit-card"></i>
+				<div class="navigation__link-title">Subscriptions</div>
+			</router-link>
+			<router-link
+				v-if="auth.user!.role === 'admin'"
+				class="navigation__link-item"
+				:to="{ name: 'users-list' }">
+				<i class="navigation__link-icon far fa-light fas fa-user"></i>
+				<div class="navigation__link-title">Users</div>
+			</router-link>
 		</div>
 		<div class="navigation__links-container navigation__links-container--bottom">
 			<router-link
