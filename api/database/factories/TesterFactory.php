@@ -1,0 +1,25 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tester>
+ */
+class TesterFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'asdfasdfasd' => fake()->randomNumber(9),
+            'asdffasdfasdfasdf' => fake()->randomElement(['aaaaaaaaaaaaaaaa', 'sssssssssssssss', 'ddddddddddddddd']),
+            'nice_names' => fake()->randomElement(['aaaaaaaaaaaaaaaaaa', 'ssssssssssssssssss']),
+        ];
+    }
+}
