@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
         if (User::count() > 0) {
             return;
         }
-        $this->call([UserSeeder::class/* GENERATOR(SEEDER) */]);
+        $this->call([UserSeeder::class, MemberSeeder::class, ClassModelSeeder::class, InstructorSeeder::class, StudioSeeder::class, EquipmentSeeder::class, BookingSeeder::class, PaymentSeeder::class, ProgramSeeder::class, FeedbackSeeder::class, ScheduleSeeder::class]);
     }
 }
