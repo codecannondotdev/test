@@ -17,7 +17,43 @@
 				@click="toggleLocked" />
 		</div>
 		<div class="navigation__links-container">
-			<!-- GENERATOR(LINK) -->
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'asdfasdfasds-list' }">
+				<i class="navigation__link-icon far fa-light fa-user"></i>
+				<div class="navigation__link-title">Asdfasdfasds</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'trainers-list' }">
+				<i class="navigation__link-icon far fa-light fa-dumbbell"></i>
+				<div class="navigation__link-title">Trainers</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'fitness-classs-list' }">
+				<i class="navigation__link-icon far fa-light fa-dumbbell"></i>
+				<div class="navigation__link-title">Fitness Classs</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'bookings-list' }">
+				<i class="navigation__link-icon far fa-light fa-calendar-check"></i>
+				<div class="navigation__link-title">Bookings</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'memberships-list' }">
+				<i class="navigation__link-icon far fa-light fa-id-card"></i>
+				<div class="navigation__link-title">Memberships</div>
+			</router-link>
+			<router-link
+				v-if="auth.user!.role === 'admin'"
+				class="navigation__link-item"
+				:to="{ name: 'users-list' }">
+				<i class="navigation__link-icon far fa-light fa-user"></i>
+				<div class="navigation__link-title">Users</div>
+			</router-link>
 		</div>
 		<div class="navigation__links-container navigation__links-container--bottom">
 			<router-link
