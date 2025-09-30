@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
         if (User::count() > 0) {
             return;
         }
-        $this->call([UserSeeder::class/* GENERATOR(SEEDER) */]);
+        $this->call([UserSeeder::class, AsdfasdfasdSeeder::class, TrainerSeeder::class, FitnessClassSeeder::class, BookingSeeder::class, MembershipSeeder::class]);
     }
 }

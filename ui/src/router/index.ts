@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/Auth'
 import NotFound from '../views/NotFound.vue'
 import authGuard from './guards/authGuard'
-import { usePostHog } from '@/usePostHog.ts'
 
 import Login from '../views/Auth/Login.vue'
 import Register from '../views/Auth/Register.vue'
@@ -14,7 +13,16 @@ import AuthApi from '@/helpers/api/AuthApi'
 import UserList from '../views/User/List.vue'
 import UserEdit from '../views/User/Edit.vue'
 import UserDetails from '../views/User/Details.vue'
-/* GENERATOR(IMPORT) */
+import AsdfasdfasdList from '../views/Asdfasdfasd/List.vue'
+import AsdfasdfasdEdit from '../views/Asdfasdfasd/Edit.vue'
+import TrainerList from '../views/Trainer/List.vue'
+import TrainerEdit from '../views/Trainer/Edit.vue'
+import FitnessClassList from '../views/FitnessClass/List.vue'
+import FitnessClassEdit from '../views/FitnessClass/Edit.vue'
+import BookingList from '../views/Booking/List.vue'
+import BookingEdit from '../views/Booking/Edit.vue'
+import MembershipList from '../views/Membership/List.vue'
+import MembershipEdit from '../views/Membership/Edit.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -144,7 +152,106 @@ const router = createRouter({
 				},
 			],
 		},
-		/* GENERATOR(ROUTES) */
+		{
+			path: '/asdfasdfasds',
+			children: [
+				{
+					path: '',
+					name: 'asdfasdfasds-list',
+					component: AsdfasdfasdList,
+				},
+				{
+					path: '/asdfasdfasds/create',
+					name: 'asdfasdfasds-create',
+					component: AsdfasdfasdEdit,
+				},
+				{
+					path: '/asdfasdfasds/:id',
+					name: 'asdfasdfasds-edit',
+					component: AsdfasdfasdEdit,
+				},
+			],
+		},
+		{
+			path: '/trainers',
+			children: [
+				{
+					path: '',
+					name: 'trainers-list',
+					component: TrainerList,
+				},
+				{
+					path: '/trainers/create',
+					name: 'trainers-create',
+					component: TrainerEdit,
+				},
+				{
+					path: '/trainers/:id',
+					name: 'trainers-edit',
+					component: TrainerEdit,
+				},
+			],
+		},
+		{
+			path: '/fitness-classs',
+			children: [
+				{
+					path: '',
+					name: 'fitness-classs-list',
+					component: FitnessClassList,
+				},
+				{
+					path: '/fitness-classs/create',
+					name: 'fitness-classs-create',
+					component: FitnessClassEdit,
+				},
+				{
+					path: '/fitness-classs/:id',
+					name: 'fitness-classs-edit',
+					component: FitnessClassEdit,
+				},
+			],
+		},
+		{
+			path: '/bookings',
+			children: [
+				{
+					path: '',
+					name: 'bookings-list',
+					component: BookingList,
+				},
+				{
+					path: '/bookings/create',
+					name: 'bookings-create',
+					component: BookingEdit,
+				},
+				{
+					path: '/bookings/:id',
+					name: 'bookings-edit',
+					component: BookingEdit,
+				},
+			],
+		},
+		{
+			path: '/memberships',
+			children: [
+				{
+					path: '',
+					name: 'memberships-list',
+					component: MembershipList,
+				},
+				{
+					path: '/memberships/create',
+					name: 'memberships-create',
+					component: MembershipEdit,
+				},
+				{
+					path: '/memberships/:id',
+					name: 'memberships-edit',
+					component: MembershipEdit,
+				},
+			],
+		},
 		{
 			path: '/404-not-found',
 			name: 'not-found',
@@ -166,21 +273,11 @@ const router = createRouter({
 		{
 			name: 'root',
 			path: '/:pathMatch(.*)*',
-			redirect: '/home',
+			redirect: '/asdfasdfasds',
 		},
 	],
 })
 
 router.beforeEach(authGuard)
-
-const { posthog } = usePostHog()
-router.beforeEach((to, from) => {
-	if (from.path !== to.path) {
-		posthog.capture('$pageleave')
-	}
-})
-router.afterEach(() => {
-	posthog.capture('$pageview')
-})
 
 export default router
