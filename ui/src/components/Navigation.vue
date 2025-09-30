@@ -17,7 +17,133 @@
 				@click="toggleLocked" />
 		</div>
 		<div class="navigation__links-container">
-			<!-- GENERATOR(LINK) -->
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'products-list' }">
+				<i class="navigation__link-icon far fa-light fa-box"></i>
+				<div class="navigation__link-title">Products</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'categories-list' }">
+				<i class="navigation__link-icon far fa-light fa-tags"></i>
+				<div class="navigation__link-title">Categories</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'suppliers-list' }">
+				<i class="navigation__link-icon far fa-light fa-industry"></i>
+				<div class="navigation__link-title">Suppliers</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'customers-list' }">
+				<i class="navigation__link-icon far fa-light fa-user"></i>
+				<div class="navigation__link-title">Customers</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'orders-list' }">
+				<i class="navigation__link-icon far fa-light fa-shopping-cart"></i>
+				<div class="navigation__link-title">Orders</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'order-items-list' }">
+				<i class="navigation__link-icon far fa-light fa-shopping-cart"></i>
+				<div class="navigation__link-title">Order Items</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'inventories-list' }">
+				<i class="navigation__link-icon far fa-light fa-boxes"></i>
+				<div class="navigation__link-title">Inventories</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'warehouses-list' }">
+				<i class="navigation__link-icon far fa-light fa-warehouse"></i>
+				<div class="navigation__link-title">Warehouses</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'shipments-list' }">
+				<i class="navigation__link-icon far fa-light fa-truck"></i>
+				<div class="navigation__link-title">Shipments</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'shipment-items-list' }">
+				<i class="navigation__link-icon far fa-light fa-box"></i>
+				<div class="navigation__link-title">Shipment Items</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'purchase-orders-list' }">
+				<i class="navigation__link-icon far fa-light fa-file-invoice"></i>
+				<div class="navigation__link-title">Purchase Orders</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'purchase-order-items-list' }">
+				<i class="navigation__link-icon far fa-light fa-shopping-cart"></i>
+				<div class="navigation__link-title">Purchase Order Items</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'employees-list' }">
+				<i class="navigation__link-icon far fa-light fa-user-tie"></i>
+				<div class="navigation__link-title">Employees</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'roles-list' }">
+				<i class="navigation__link-icon far fa-light fa-user-shield"></i>
+				<div class="navigation__link-title">Roles</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'transactions-list' }">
+				<i class="navigation__link-icon far fa-light fa-exchange-alt"></i>
+				<div class="navigation__link-title">Transactions</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'payments-list' }">
+				<i class="navigation__link-icon far fa-light fa-credit-card"></i>
+				<div class="navigation__link-title">Payments</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'shipping-methods-list' }">
+				<i class="navigation__link-icon far fa-light fa-shipping-fast"></i>
+				<div class="navigation__link-title">Shipping Methods</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'locations-list' }">
+				<i class="navigation__link-icon far fa-light fa-map-marker-alt"></i>
+				<div class="navigation__link-title">Locations</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'damage-reports-list' }">
+				<i class="navigation__link-icon far fa-light fa-exclamation-triangle"></i>
+				<div class="navigation__link-title">Damage Reports</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'returns-list' }">
+				<i class="navigation__link-icon far fa-light fa-undo"></i>
+				<div class="navigation__link-title">Returns</div>
+			</router-link>
+			<router-link
+				v-if="auth.user!.role === 'admin'"
+				class="navigation__link-item"
+				:to="{ name: 'users-list' }">
+				<i class="navigation__link-icon far fa-light fas fa-user"></i>
+				<div class="navigation__link-title">Users</div>
+			</router-link>
 		</div>
 		<div class="navigation__links-container navigation__links-container--bottom">
 			<router-link
