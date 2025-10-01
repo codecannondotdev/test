@@ -1,0 +1,152 @@
+<template>
+	<Card class="donation-events-relation-widget">
+		<template #title>
+			<h4 class="donation-events-relation-widget__title">Donation Events</h4>
+			<Button
+				icon="fal fa-link"
+				label="Connect"
+				outlined
+				severity="secondary"
+				@click="isRelationAddDialogActive = true" />
+			<Button
+				icon="fal fa-plus"
+				label="Create"
+				outlined
+				severity="secondary"
+				@click="isFormActive = true" />
+		</template>
+		<template #content>
+			<ApiTable
+				flat
+				:list-state="listState"
+				@row-click="openDetails">
+				<Column
+					field="order_number"
+					header="Order Number" />
+				<Column
+					header=""
+					:style="{ maxWidth: '72px', width: '72px' }">
+					<template #body="slotProps">
+						<Button
+							severity="secondary"
+							outlined
+							rounded
+							icon="fal fa-times"
+							:loading="dissociateLoading === slotProps.data.id"
+							@click.stop.prevent="dissociate(slotProps.data)" />
+					</template>
+				</Column>
+			</ApiTable>
+		</template>
+	</Card>
+	<DonationEventsRelationAddDialog
+		v-model="isRelationAddDialogActive"
+		:donor-id="props.donorId"
+		@update="refresh()" />
+	<ProcurementOrderForm
+		:as-dialog="true"
+		:visible="isFormActive"
+		:should-redirect="false"
+		:force-values="{ donor_id: Number(props.donorId) }"
+		:hide-inputs="['donor_id']"
+		@close="isFormActive = false"
+		@created="refresh()" />
+</template>
+
+<script setup lang="ts">
+import { defineProps, onBeforeMount, ref } from 'vue'
+import DonationEventsRelationAddDialog from './DonationEventsRelationAddDialog.vue'
+import ProcurementOrderForm from '@/views/ProcurementOrder/components/Form.vue'
+import Card from 'primevue/card'
+import ApiTable from '@/components/Table/ApiTable.vue'
+import Column from 'primevue/column'
+import Button from 'primevue/button'
+import { useRouter } from 'vue-router'
+import { useProcurementOrderListState } from '@/models/ProcurementOrder/States'
+import type { ProcurementOrder } from '@/models/ProcurementOrder/Model'
+import type { Donor } from '@/models/Donor/Model'
+import DonorsApi from '@/models/Donor/Api'
+
+const emit = defineEmits(['start-loading', 'stop-loading'])
+
+const props = defineProps<{
+	donorId: Donor['id']
+}>()
+
+const router = useRouter()
+const isRelationAddDialogActive = ref(false)
+const isFormActive = ref(false)
+const dissociateLoading = ref(null as null | number | string)
+const listLoading = ref(false)
+const listState = useProcurementOrderListState()
+listState.defaultParams = {
+	per_page: 10,
+	fromRelation: {
+		model: 'App\\Models\\Donor',
+		id: props.donorId,
+		relation: 'donationEvents',
+	},
+}
+
+onBeforeMount(() => {
+	refresh()
+})
+
+async function refresh() {
+	listLoading.value = true
+	emit('start-loading')
+	try {
+		await listState.getList()
+	} finally {
+		listLoading.value = false
+		emit('stop-loading')
+	}
+}
+
+async function dissociate(item: ProcurementOrder) {
+	dissociateLoading.value = item.id
+	emit('start-loading')
+	try {
+		await new DonorsApi().updateRelation(props.donorId, 'donationEvents', {
+			method: 'dissociate',
+			params: [item.id],
+		})
+		dissociateLoading.value = null
+		await refresh()
+	} finally {
+		dissociateLoading.value = null
+		emit('stop-loading')
+	}
+}
+
+function openDetails(item: { data: ProcurementOrder }) {
+	router.push({ name: 'procurement-orders-edit', params: { id: item.data.id } })
+}
+</script>
+
+<style lang="scss" scoped>
+.donation-events-relation-widget {
+	width: 100%;
+	max-width: 600px;
+	overflow: hidden;
+
+	:deep(.p-card-body) {
+		padding: 20px 0 0;
+
+		.p-card-caption {
+			padding: 0px 20px 12px;
+
+			.p-card-title {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				.donation-events-relation-widget__title {
+					flex: 1;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+</style>

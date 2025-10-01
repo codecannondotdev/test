@@ -1,0 +1,48 @@
+<template>
+	<Header
+		:list-state="listState"
+		search
+		title="Immunizations" />
+	<Container>
+		<ApiTable
+			:list-state="listState"
+			@row-click="openDetails">
+			<Column
+				field="name"
+				header="Name" />
+			<Column
+				field="schedule"
+				header="Schedule" />
+			<Column
+				:style="{ maxWidth: '72px', width: '72px' }"
+				header="">
+				<template #body="slotProps">
+					<ApiTableRemoveButton :item="slotProps.data" />
+				</template>
+			</Column>
+		</ApiTable>
+	</Container>
+</template>
+
+<script setup lang="ts">
+import Header from './components/Header.vue'
+import { onBeforeMount } from 'vue'
+import { useRouter } from 'vue-router'
+import ApiTable from '@/components/Table/ApiTable.vue'
+import Column from 'primevue/column'
+import Container from '@/components/Container.vue'
+import type { Immunization } from '@/models/Immunization/Model'
+import { useImmunizationListState } from '@/models/Immunization/States'
+import ApiTableRemoveButton from '@/components/Table/ApiTableRemoveButton.vue'
+
+const listState = useImmunizationListState()
+const router = useRouter()
+
+onBeforeMount(() => {
+	listState.getList()
+})
+
+function openDetails(item: { data: Immunization }) {
+	router.push({ name: 'immunizations-edit', params: { id: item.data.id } })
+}
+</script>
