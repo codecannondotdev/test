@@ -17,7 +17,67 @@
 				@click="toggleLocked" />
 		</div>
 		<div class="navigation__links-container">
-			<!-- GENERATOR(LINK) -->
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'expenses-list' }">
+				<i class="navigation__link-icon far fa-light fa-wallet"></i>
+				<div class="navigation__link-title">Expenses</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'categories-list' }">
+				<i class="navigation__link-icon far fa-light fa-th-large"></i>
+				<div class="navigation__link-title">Categories</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'vendors-list' }">
+				<i class="navigation__link-icon far fa-light fa-truck"></i>
+				<div class="navigation__link-title">Vendors</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'projects-list' }">
+				<i class="navigation__link-icon far fa-light fa-folder"></i>
+				<div class="navigation__link-title">Projects</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'budgets-list' }">
+				<i class="navigation__link-icon far fa-light fa-wallet"></i>
+				<div class="navigation__link-title">Budgets</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'receipts-list' }">
+				<i class="navigation__link-icon far fa-light fa-file"></i>
+				<div class="navigation__link-title">Receipts</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'expense-reports-list' }">
+				<i class="navigation__link-icon far fa-light fa-file-invoice"></i>
+				<div class="navigation__link-title">Expense Reports</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'tags-list' }">
+				<i class="navigation__link-icon far fa-light fa-tag"></i>
+				<div class="navigation__link-title">Tags</div>
+			</router-link>
+			<router-link
+				class="navigation__link-item"
+				:to="{ name: 'currencies-list' }">
+				<i class="navigation__link-icon far fa-light fa-coins"></i>
+				<div class="navigation__link-title">Currencies</div>
+			</router-link>
+			<router-link
+				v-if="auth.user!.role === 'admin'"
+				class="navigation__link-item"
+				:to="{ name: 'users-list' }">
+				<i class="navigation__link-icon far fa-light fa-user"></i>
+				<div class="navigation__link-title">Users</div>
+			</router-link>
 		</div>
 		<div class="navigation__links-container navigation__links-container--bottom">
 			<router-link
